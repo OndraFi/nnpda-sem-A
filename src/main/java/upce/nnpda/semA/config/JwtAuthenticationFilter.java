@@ -82,7 +82,10 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
             }
 
             filterChain.doFilter(request, response);
-        } catch (Exception exception) {
+        } catch (io.jsonwebtoken.ExpiredJwtException |
+                 io.jsonwebtoken.security.SignatureException |
+                 io.jsonwebtoken.MalformedJwtException |
+                 IllegalArgumentException exception) {
             log.error("🔥 Exception in JWT filter: {}", exception.getMessage());
             handlerExceptionResolver.resolveException(request, response, null, exception);
             response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Unauthorized: " + exception.getMessage());

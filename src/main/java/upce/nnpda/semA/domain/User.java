@@ -1,13 +1,14 @@
 package upce.nnpda.semA.domain;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-import upce.nnpda.semA.dto.UserResponseDto;
+import upce.nnpda.semA.dto.user.UserResponseDto;
 
 import java.time.LocalDateTime;
 import java.util.Collection;
@@ -30,6 +31,7 @@ public class User implements UserDetails {
 
     @NonNull
     @Column(unique = true)
+    @Email
     private String email;
 
     @NonNull
@@ -50,6 +52,12 @@ public class User implements UserDetails {
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
                 '}';
+    }
+
+
+    @Override
+    public String getUsername() {
+        return this.getEmail();
     }
 
     @Override

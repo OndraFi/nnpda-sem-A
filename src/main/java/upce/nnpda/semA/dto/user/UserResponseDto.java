@@ -1,4 +1,4 @@
-package upce.nnpda.semA.dto;
+package upce.nnpda.semA.dto.user;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

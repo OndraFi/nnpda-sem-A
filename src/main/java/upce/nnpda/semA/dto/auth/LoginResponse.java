@@ -1,4 +1,4 @@
-package upce.nnpda.semA.dto;
+package upce.nnpda.semA.dto.auth;
 
 import lombok.Getter;
 import lombok.Setter;
