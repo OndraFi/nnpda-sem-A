@@ -26,7 +26,7 @@ public class JwtService {
     private long jwtExpiration;
 
     public String extractUsername(String token) {
-        log.info("🔍 Extracted username from token: " + extractClaim(token, Claims::getSubject));
+        log.info("🔍 Extracted email from token: " + extractClaim(token, Claims::getSubject));
         return extractClaim(token, Claims::getSubject);
     }
 

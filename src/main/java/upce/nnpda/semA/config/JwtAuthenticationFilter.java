@@ -50,7 +50,6 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
             log.warn("❌ No JWT token found, skipping authentication");
 
             filterChain.doFilter(request, response);
-//            response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Missing or invalid Authorization header.");
             return;
         }
 

@@ -18,7 +18,7 @@ import java.util.Map;
 public class GlobalExceptionHandler {
 
     @ExceptionHandler(NoHandlerFoundException.class)
-    @ResponseStatus(HttpStatus.NOT_FOUND) // 🔥 Vrací správně 404 místo 401
+    @ResponseStatus(HttpStatus.NOT_FOUND)
     public Map<String, String> handleNoHandlerFoundException(NoHandlerFoundException ex) {
         return Map.of("error", "Endpoint not found: " + ex.getRequestURL());
     }
